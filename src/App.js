@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import AWS from 'aws-sdk';
+
+import { isArray } from 'lodash';
+
 import Dropzone from 'react-dropzone';
 
 import './App.css';
@@ -11,22 +14,39 @@ class App extends Component {
         accessKeyID: '',
         secretAccessKey: '',
         bucketName: '',
+        fileExtensions: [],
         files: [],
         isUploading: false
     };
 
-    onDrop = files => this.setState({files});
+    onDrop = files => {
+        let type = files[0].type;
+        let format = type.substring(0, type.lastIndexOf('/'));
+        let extension = type.substring(type.lastIndexOf('/') + 1, type.length);
+
+        if (isArray(this.state.fileExtensions)) {
+            if (this.state.fileExtensions.includes(extension)) {
+                this.setState({files});
+            }
+        } else if (format === "audio") {
+            this.setState({files});
+        } else {
+            alert("Wrong file extension");
+        }
+
+    };
 
     componentDidMount() {
         fetch('configuration.json')
             .then(res => res.json())
             .then(data => {
-                const { accessKeyID, secretAccessKey, bucketName } = data;
+                const { accessKeyID, secretAccessKey, bucketName, fileExtensions } = data;
 
                 this.setState({
                     accessKeyID,
                     secretAccessKey,
-                    bucketName
+                    bucketName,
+                    fileExtensions
                 });
             }).catch(err => console.error(err))
     }
