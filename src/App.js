@@ -24,7 +24,7 @@ class App extends Component {
         let format = type.substring(0, type.lastIndexOf('/'));
         let extension = type.substring(type.lastIndexOf('/') + 1, type.length);
 
-        if (isArray(this.state.fileExtensions)) {
+        if (isArray(this.state.fileExtensions) && this.state.fileExtensions.length > 0) {
             if (this.state.fileExtensions.includes(extension)) {
                 this.setState({files});
             }
