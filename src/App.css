@@ -1,0 +1,56 @@
+.App {
+    text-align: center;
+}
+
+.dropzone_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    outline: none !important;
+}
+
+.files_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.upload_button, .send_button {
+    width: 220px;
+    height: 50px;
+    cursor: pointer;
+    outline: none !important;
+    transition: all .25s ease;
+    font-size: 20px;
+}
+
+.upload_button {
+    background-color: transparent;
+    border: 1px solid #000;
+}
+.upload_button:hover, .send_button:hover {
+    background: #000;
+    color: #fff;
+    transition: all .25s ease;
+}
+
+.send_button {
+    background-color: rgba(0, 0, 0, 0.54);
+    color: #fff;
+}
+
+.upload_image {
+    width: 200px;
+    height: auto;
+}
+
+.circle {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}

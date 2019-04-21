@@ -1,0 +1,5 @@
+.git/
+.idea/
+flow-typed/
+node_modules/
+tests/coverage/
