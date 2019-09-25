@@ -11,7 +11,7 @@ import cloudUploadImage from './cloud-upload.png';
 class App extends Component {
 
     state = {
-        accessKeyID: '',
+        accessKeyID: '12',
         secretAccessKey: '',
         bucketName: '',
         fileExtensions: [],
